@@ -103,22 +103,52 @@ resultado. */
 
 
 /*Recorre el array con un bucle foreach y muestra cada valor.*/
+function imprimirArray($miArray) {
+    foreach ($miArray as $esMiArray){
+        echo $esMiArray. ",";
+    }
+    
+    echo "<p></p>";
+}
 
+//Función para modificar el array
+function modificarArray($miArray, $nuevoValor, $posicion) {
+    try {
+        $miArray[$posicion]=$nuevoValor;
+        return $miArray;
+    } catch (Exception $ex) {
+        return $miArray;
+    }
+}
+
+//Llamar a función e imprimir array frutas
+imprimirArray($frutas);
 
 /*Modifica uno de los elementos del array y vuelve a mostrar el array.*/
+$frutas[0]="melón"
 
+//Modificar el array usando la función
+$frutas = modificarArray($frutas, "paraguayo",1);
+
+//Llamar a la función e imprimir array y comprobar cambio
+imprimirArray($frutas;)
 
 /*Cuenta el número de elementos en el array.*/
-
+echo count($frutas) //No hace falta crear función ya que tenemos el count
+echo "<p></p>";
 
 /*Crea un segundo array con otros 3 elementos y únelos al primero.*/
-
+$frutas2 ["plátano","fresa", "maracuya"];
+$todasFrutas = array_merge($frutas,$frutas2);
+imprimirArray($todasFrutas);
 
 /*Elimina un elemento del array combinado.*/
-
+unset($frutas[1]);
+imprimirArray($frutas);
 
 /*Convierte el array final en una cadena de texto usando implode() y muéstralo en
 pantalla.*/
-
+$frutasString = implode("****", $frutas);
+echo $frutasString; //Imprime manzana, pera
 
 ?>
